@@ -2,7 +2,7 @@
 [![codecov.io](http://codecov.io/github/voidberg/imagecache/coverage.svg?branch=master)](http://codecov.io/github/voidberg/imagecache?branch=master)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![David-dm.org](https://david-dm.org/voidberg/imagecache.svg)](https://david-dm.org/voidberg/imagecache#info=dependencies&view=table)
-[![David-dm.org](https://david-dm.org/voidberg/imagecache#dev-badge-embed)](https://david-dm.org/voidberg/imagecache#info=devDependencies&view=table)
+[![David-dm.org](https://david-dm.org/voidberg/imagecache/dev-status.svg)](https://david-dm.org/voidberg/imagecache#info=devDependencies&view=table)
 
 #Imagecache
 ---
