@@ -9,6 +9,7 @@ node_js:
   - '4'
 before_install:
   - npm i -g npm@^2.0.0
+  - sudo apt-get install libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++
 before_script:
   - npm prune
 script:
