@@ -1,5 +1,6 @@
 {
   "name": "imagecache",
+  "version": "0.0.0-semantically-released",
   "description": "Lightweight image generation module based on CamanJS and inspired by Drupal's image styles.",
   "keywords": [
     "camanjs",
