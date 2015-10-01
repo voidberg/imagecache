@@ -1,12 +1,13 @@
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Codeship](https://codeship.com/projects/bb9bea30-49fd-0133-d8a0-02da4d06d74f/status?branch=master)](http://codeship.com/)
+[![codecov.io](http://codecov.io/github/voidberg/imagecache/coverage.svg?branch=master)](http://codecov.io/github/voidberg/imagecache?branch=master)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-#Node Imagecache
+#Imagecache
 ---
 
 ## What is it?
 
-Image generation module loosely based on Drupal's Imagecache and based on CamanJS.
+Node image generation module based on CamanJS and inspired by Drupal's image styles.
 
 ## Installation
 
