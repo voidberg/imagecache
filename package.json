@@ -58,6 +58,10 @@
     "mocha": "2.2.5",
     "semantic-release": "^4.3.5"
   },
+  "release": {
+    "debug": false,
+    "verifyConditions": "semantic-release/dist/lib/plugin-noop"
+  },
   "czConfig": {
     "path": "node_modules/cz-conventional-changelog"
   }
