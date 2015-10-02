@@ -1,31 +1,30 @@
-var Caman = require('caman').Caman;
-var Canvas = require('canvas');
-var Image = Canvas.Image;
-var fs = require('fs');
+const Canvas = require('canvas');
+const Image = Canvas.Image;
+const fs = require('fs');
 
-var self = module.exports = {
-  attach: function (options) {
-    this.file = function (image, config, callback) {
-      var plugin = this;
+module.exports = {
+  attach: function attach() {
+    this.file = function file(image, config, callback) {
+      const plugin = this;
 
-      var iWidth = image.imageWidth();
-      var iHeight = image.imageHeight();
+      const iWidth = image.imageWidth();
+      const iHeight = image.imageHeight();
 
-      var alpha = plugin.convertInt(config.alpha);
+      const alpha = plugin.convertInt(config.alpha);
 
-      fs.readFile(config.path, function(err, file){
+      fs.readFile(config.path, function readFileCallback(err, contents) {
         if (err) {
           return callback(err);
         }
 
-        var overlay = new Image;
-        overlay.src = file;
+        const overlay = new Image;
+        overlay.src = contents;
 
-        var xpos = config.xpos ? plugin.convertPosition(config.xpos, iWidth, overlay.width) : 0;
-        var ypos = config.ypos ? plugin.convertPosition(config.ypos, iHeight, overlay.height) : 0;
+        const xpos = config.xpos ? plugin.convertPosition(config.xpos, iWidth, overlay.width) : 0;
+        const ypos = config.ypos ? plugin.convertPosition(config.ypos, iHeight, overlay.height) : 0;
 
 
-        var ctx = image.canvas.getContext('2d');
+        const ctx = image.canvas.getContext('2d');
 
         if (alpha !== 100) {
           ctx.globalAlpha = 0.4;
@@ -42,5 +41,5 @@ var self = module.exports = {
         return callback();
       });
     };
-  }
+  },
 };

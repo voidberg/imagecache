@@ -2,7 +2,10 @@
   "extends": "airbnb",
   "rules": {
     "new-cap": [2, {
-      "capIsNewExceptions": ["Caman"]
-    }]
+      "capIsNewExceptions": ["Caman", "S"]
+    }],
+    "id-length": [2, {
+      "exceptions": ["S"]
+    }],
   }
 }

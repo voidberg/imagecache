@@ -1,26 +1,27 @@
-var Caman = require('caman').Caman;
-var Canvas = require('canvas');
-var Image = Canvas.Image;
+const Canvas = require('canvas');
+const Image = Canvas.Image;
 
-var self = module.exports = {
-  attach: function (options) {
-    this.define_canvas = function (image, config, callback) {
-      var plugin = this;
+module.exports = {
+  attach: function attach() {
+    this.define_canvas = function defineCanvas(image, config, callback) {
+      const plugin = this;
 
-      var iWidth = image.imageWidth();
-      var iHeight = image.imageHeight();
+      const iWidth = image.imageWidth();
+      const iHeight = image.imageHeight();
 
-      var tWidth, tHeight, tXpos, tYpos;
+      let tWidth;
+      let tHeight;
+      let tXpos;
+      let tYpos;
 
       if (config.exact.width || config.exact.height) {
         tWidth = !config.exact.width ? iWidth : plugin.convertDimension(config.exact.width, iWidth);
         tHeight = !config.exact.width ? iHeight : plugin.convertDimension(config.exact.height, iHeight);
-      }
-      else {
-        var leftDiff = config.relative.left ? plugin.convertDimension(config.relative.left, iWidth) : 0;
-        var rightDiff = config.relative.right ? plugin.convertDimension(config.relative.right, iWidth) : 0;
-        var topDiff = config.relative.top ? plugin.convertDimension(config.relative.top, iHeight) : 0;
-        var bottomDiff = config.relative.bottom ? plugin.convertDimension(config.relative.bottom, iHeight) : 0;
+      } else {
+        const leftDiff = config.relative.left ? plugin.convertDimension(config.relative.left, iWidth) : 0;
+        const rightDiff = config.relative.right ? plugin.convertDimension(config.relative.right, iWidth) : 0;
+        const topDiff = config.relative.top ? plugin.convertDimension(config.relative.top, iHeight) : 0;
+        const bottomDiff = config.relative.bottom ? plugin.convertDimension(config.relative.bottom, iHeight) : 0;
 
         tWidth = iWidth + leftDiff + rightDiff;
         tHeight = iHeight + topDiff + bottomDiff;
@@ -28,8 +29,8 @@ var self = module.exports = {
         tYpos = topDiff;
       }
 
-      image.render(function () {
-        var img = new Image;
+      image.render(function render() {
+        const img = new Image;
         img.src = image.canvas.toBuffer();
 
         if (config.exact.width || config.exact.height) {
@@ -40,7 +41,7 @@ var self = module.exports = {
         image.canvas.width = tWidth;
         image.canvas.height = tHeight;
 
-        var ctx = image.canvas.getContext('2d');
+        const ctx = image.canvas.getContext('2d');
         ctx.fillStyle = config.color;
         ctx.fillRect(0, 0, tWidth, tHeight);
 
@@ -51,5 +52,5 @@ var self = module.exports = {
         return callback();
       });
     };
-  }
+  },
 };

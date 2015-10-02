@@ -1,48 +1,45 @@
-var S = require('string');
+const S = require('string');
 
-var self = module.exports = {
-  attach: function (options) {
-    this.convertBoolean = function (value) {
+module.exports = {
+  attach: function attach() {
+    this.convertBoolean = function convertBoolean(value) {
       return S(value).toBool();
     };
 
-    this.convertFloat = function (value) {
+    this.convertFloat = function convertFloat(value) {
       return S(value).toFloat();
     };
 
-    this.convertInt = function (value) {
+    this.convertInt = function convertInt(value) {
       return S(value).toInt();
     };
 
-    this.convertDimension = function (value, maxDimension) {
+    this.convertDimension = function convertDimension(value, maxDimension) {
+      let converted;
+
       if (S(value).endsWith('%')) {
-        value = ~~(maxDimension * S(value).replace('%', '').toInt() / 100);
-      }
-      else {
-        value = S(value).toInt();
+        converted = ~~(maxDimension * S(value).replace('%', '').toInt() / 100);
+      } else {
+        converted = S(value).toInt();
       }
 
-      return value;
+      return converted;
     };
 
-    this.convertPosition = function (value, maxPosition, imageSize) {
-      imageSize = imageSize || 0;
+    this.convertPosition = function convertPosition(value, maxPosition, imageSize = 0) {
+      let converted;
 
       if (value === 'left' || value === 'top') {
-        value = 0;
-      }
-      else if (value === 'center') {
-        value = ~~(maxPosition / 2) - ~~(imageSize / 2);
-      }
-      else if (value === 'right' || value === 'bottom') {
-        value = maxPosition;
-      }
-      else {
-        value = this.convertDimension(value, maxPosition);
+        converted = 0;
+      } else if (value === 'center') {
+        converted = ~~(maxPosition / 2) - ~~(imageSize / 2);
+      } else if (value === 'right' || value === 'bottom') {
+        converted = maxPosition;
+      } else {
+        converted = this.convertDimension(value, maxPosition);
       }
 
-      return value;
+      return converted;
     };
-
-  }
+  },
 };

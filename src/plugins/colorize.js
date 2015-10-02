@@ -1,7 +1,7 @@
-var self = module.exports = {
-  attach: function (options) {
-    this.colorize = function (image, config, callback) {
-      var strength = this.convertInt(config.strength);
+module.exports = {
+  attach: function attach() {
+    this.colorize = function colorize(image, config, callback) {
+      let strength = this.convertInt(config.strength);
 
       if (strength > 100) {
         strength = 100;
@@ -13,5 +13,5 @@ var self = module.exports = {
       image.colorize(config.color, strength);
       return callback();
     };
-  }
+  },
 };

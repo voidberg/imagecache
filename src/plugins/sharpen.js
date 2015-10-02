@@ -1,7 +1,7 @@
-var self = module.exports = {
-  attach: function (options) {
-    this.sharpen = function (image, config, callback) {
-      var value = this.convertInt(config.value);
+module.exports = {
+  attach: function attach() {
+    this.sharpen = function sharpen(image, config, callback) {
+      let value = this.convertInt(config.value);
 
       if (value > 100) {
         value = 100;
@@ -13,5 +13,5 @@ var self = module.exports = {
       image.sharpen(value);
       return callback();
     };
-  }
+  },
 };

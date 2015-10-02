@@ -1,7 +1,7 @@
-var self = module.exports = {
-  attach: function (options) {
-    this.noise = function (image, config, callback) {
-      var value = this.convertInt(config.value);
+module.exports = {
+  attach: function attach() {
+    this.noise = function noise(image, config, callback) {
+      let value = this.convertInt(config.value);
 
       if (value < 0) {
         value = 0;
@@ -10,5 +10,5 @@ var self = module.exports = {
       image.noise(value);
       return callback();
     };
-  }
+  },
 };
