@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/voidberg/imagecache.png?label=ready&title=Ready)](https://waffle.io/voidberg/imagecache)
 [![Latest release on NPM](https://img.shields.io/npm/v/imagecache.svg)](https://www.npmjs.com/package/imagecache)
 [![Codeship Status for voidberg/imagecache](https://img.shields.io/codeship/0de31e00-4b12-0133-f672-7236a2d50232.svg)](https://codeship.com/projects/106113)
 [![codecov.io](http://codecov.io/github/voidberg/imagecache/coverage.svg?branch=master)](http://codecov.io/github/voidberg/imagecache?branch=master)
